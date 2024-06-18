@@ -2,7 +2,7 @@ from datetime import datetime
 
 import streamlit as st
 
-__DATE_FORMAT = "YYYY/MM/DD hh:mm"
+__DATETIME_FORMAT = "YYYY/MM/DD hh:mm"
 
 __DISP_COLUMNS = [
     "id_by_user",
@@ -12,8 +12,8 @@ __DISP_COLUMNS = [
     "size_y",
     "size_z",
     "remarks",
-    "first_upload_date",
-    "update_date",
+    "first_upload",
+    "update",
     "reference",
     "rate",
     "status",
@@ -25,8 +25,8 @@ DF_CONFIG = {
     "height": {"small": 210, "tall": 550},
     "disabled columns": [
         "id_by_user",
-        "first_upload_date",
-        "update_date",
+        "first_upload",
+        "update",
         "rate",
         "status",
         "reference",
@@ -74,18 +74,18 @@ DF_CONFIG = {
             "Remarks",
             max_chars=200,
         ),
-        "first_upload_date": st.column_config.DatetimeColumn(
-            "First Added",
+        "first_upload": st.column_config.DatetimeColumn(
+            "First Upload",
             min_value=datetime(2024, 6, 1),
             max_value=datetime(2030, 1, 1),
-            format=__DATE_FORMAT,
+            format=__DATETIME_FORMAT,
             step=60,
         ),
-        "update_date": st.column_config.DatetimeColumn(
-            "Last Updated",
+        "update": st.column_config.DatetimeColumn(
+            "Last Update",
             min_value=datetime(2024, 6, 1),
             max_value=datetime(2030, 1, 1),
-            format=__DATE_FORMAT,
+            format=__DATETIME_FORMAT,
             step=60,
         ),
         "reference": st.column_config.ListColumn(

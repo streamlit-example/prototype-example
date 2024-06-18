@@ -2,17 +2,17 @@ import time
 
 import streamlit as st
 
-from modules.utils import calc, write_data
-from views.disp_data import disp_data
+from modules.utils import calc, write_data  # type: ignore
+from views.disp_data import disp_data  # type: ignore
 
 
-def modify_and_calc(area, data, filtered_df):
+def edit_and_calc(area, data, filtered_data):
     container = area.empty()
     col_l, col_r = area.columns([1, 7])
-    edit_mode = col_l.checkbox("Modify Mode")
+    edit_mode = col_l.checkbox("Edit Mode")
 
     df_edited = disp_data(
-        area=container, data=filtered_df, height="tall", editable=edit_mode
+        area=container, data=filtered_data, height="tall", editable=edit_mode
     )
 
     if edit_mode:

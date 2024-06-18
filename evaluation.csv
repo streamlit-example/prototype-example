@@ -1,13 +1,13 @@
 file,lines,hako,mono,for import,diff,reason for diff
-app.py,21,7,4,7,3,ƒf[ƒ^‚Ì“Ç‚Ýž‚ÝAƒy[ƒW‘S”Ê‚ÌÝ’è
+app.py,21,7,4,7,3,ï¿½fï¿½[ï¿½^ï¿½Ì“Ç‚Ýï¿½ï¿½ÝAï¿½yï¿½[ï¿½Wï¿½Sï¿½Ê‚ÌÝ’ï¿½
 search.py,9,0,8,0,1,
 disp_data.py,2,0,1,1,0,
 add_data.py,24,8,14,1,1,
 check_metrics.py,9,4,3,2,0,
-modify_and_calc.py,20,4,7,1,8,ƒ{ƒ^ƒ“‚Ì”»’èAƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Ì•\Ž¦
+edit_and_calc.py,20,4,7,1,8,ï¿½{ï¿½^ï¿½ï¿½ï¿½Ì”ï¿½ï¿½ï¿½Aï¿½_ï¿½Cï¿½Aï¿½ï¿½ï¿½Oï¿½{ï¿½bï¿½Nï¿½Xï¿½Ì•\ï¿½ï¿½
 total,85,23,37,12,13,
 ,,,,,,
-EƒƒCƒ„[ƒtƒŒ[ƒ€‚Ì’iŠK‚Å‚ÍƒR[ƒh‚Í‚×‚½‘‚«‚ÅOKAƒtƒ@ƒCƒ‹‚Í•ª‚¯‚½•û‚ªŠÇ—‚µ‚â‚·‚»‚¤,,,,,,
-EƒR[ƒhs”‚Í‚Æ‚Ä‚à­‚È‚¢iUI‚É‚¨‚¯‚é—Ìˆæ”{—v‘f”‚Ì1.5”{ˆÈ‰ºj,,,,,,
-EƒR[ƒh‚ðŒ©‚Ä‚Ý‚é‚Æ’¼Š´“I‚É‘‚¯‚é‚±‚Æ‚ª•ª‚©‚é,,,,,,
-E”z’uŠ·‚¦‚à‚µ‚â‚·‚¢i˜b‚µ‚È‚ª‚çC³‚Å‚«‚éj,,,,,,
+ï¿½Eï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì’iï¿½Kï¿½Å‚ÍƒRï¿½[ï¿½hï¿½Í‚×‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½OKï¿½Aï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Í•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½ï¿½ï¿½ï¿½â‚·ï¿½ï¿½ï¿½ï¿½,,,,,,
+ï¿½Eï¿½Rï¿½[ï¿½hï¿½sï¿½ï¿½ï¿½Í‚Æ‚Ä‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½iUIï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½Ìˆæ”ï¿½{ï¿½vï¿½fï¿½ï¿½ï¿½ï¿½1.5ï¿½{ï¿½È‰ï¿½ï¿½j,,,,,,
+ï¿½Eï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ý‚ï¿½Æ’ï¿½ï¿½ï¿½ï¿½Iï¿½Éï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,,,,,,
+ï¿½Eï¿½zï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â‚·ï¿½ï¿½ï¿½iï¿½bï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½j,,,,,,

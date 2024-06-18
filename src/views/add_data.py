@@ -1,17 +1,17 @@
 import streamlit as st
 from streamlit import session_state as stss
 
-from modules.utils import (
+from modules.utils import (  # type: ignore
     add_new_data1,
     add_new_data2,
     append_filename_to_reference,
     write_data,
 )
-from views.disp_data import disp_data
+from views.disp_data import disp_data  # type: ignore
 
 
-def add_data(area, data, filtered_df):
-    disp_data(area=st, data=filtered_df)
+def add_data(area, data, filtered_data):
+    disp_data(area=st, data=filtered_data)
     columns_ = area.columns([2, 3])
     columns_[0].subheader("Upload")
     add_files(area=columns_[0], data=data)
@@ -23,9 +23,7 @@ def add_row(area, data):
     area.subheader("Add Data")
 
     cols1 = area.columns(3)
-    id_by_user = cols1[0].text_input(
-        "ID (optional)", key=f"add_row_id_{stss.id_add_row}"
-    )
+    id_by_user = cols1[0].text_input("ID", key=f"add_row_id_{stss.id_add_row}")
     name_ = cols1[1].text_input("Name", key=f"add_row_name_{stss.id_add_row}")
     type_ = cols1[2].text_input("Type", key=f"add_row_type_{stss.id_add_row}")
 
@@ -57,6 +55,11 @@ def add_files(area, data):
     files = area.file_uploader(
         "Files", accept_multiple_files=True, key=f"files_uploader{stss.id_add_files}"
     )
+
+    # アップロードファイルが未選択の場合ははじく
+    if not files:
+        return None
+
     if not area.button("Upload Files"):
         return
 
@@ -69,6 +72,9 @@ def add_files(area, data):
 def add_csv(area, data):
     csv_ = area.file_uploader("CSV", type="csv", key=f"csv_uploader{stss.id_add_csv}")
 
+    # アップロードファイルが未選択の場合ははじく
+    if not csv_:
+        return None
     if not area.button("Upload CSV"):
         return
 

@@ -42,18 +42,20 @@ def read_data():
     data = pd.read_csv(__DATA_PATH, encoding="utf-8")  # データの取得
     data["id_by_user"] = data["id_by_user"].astype(str).replace("nan", "")
     data["reference"] = data["reference"].astype(str).replace("nan", "")
-    data["first_upload_date"] = pd.to_datetime(data["first_upload_date"])
-    data["update_date"] = pd.to_datetime(data["update_date"])
+    data["first_upload"] = pd.to_datetime(data["first_upload"])
+    data["update"] = pd.to_datetime(data["update"])
     return data
 
 
-def write_data(data):
-    data["first_upload_date"] = data["first_upload_date"].apply(
+def write_data(data0):
+    data = data0.copy()
+    data["first_upload"] = data["first_upload"].apply(
         lambda x: x.isoformat() if pd.notnull(x) else None
     )
-    data["update_date"] = data["update_date"].apply(
+    data["update"] = data["update"].apply(
         lambda x: x.isoformat() if pd.notnull(x) else None
     )
+    # print(data["first_upload"])
 
     data.to_csv(__DATA_PATH, index=False)
 
@@ -63,8 +65,8 @@ def append_filename_to_reference(data: pd.DataFrame, filename: str):
     # 条件に一致する行を抽出し、referenceカラムの値を文字列型に変換してから末尾にfilenameを付け足す
     filename = os.path.splitext(os.path.basename(filename))[0]
     mask = data["id_by_user"].apply(lambda x: x in filename if x != "" else False)
-    print(data["id_by_user"])
-    print(mask)
+    # print(data["id_by_user"])
+    # print(mask)
     data.loc[mask, "reference"] = data.loc[mask, "reference"].apply(
         lambda x: (f"{x}, " if x != "" else "") + filename
     )
@@ -98,10 +100,22 @@ def add_new_data1(data, id_by_user, name_, type_, size_x, size_y, size_z, remark
 
 def add_new_data2(data, csv_):
     now = pd.to_datetime(datetime.now())
-    data_new = pd.read_csv(csv_).rename(columns={"id": "id_by_user"})
+    data_new = pd.read_csv(csv_).rename(
+        columns={
+            "ID": "id_by_user",
+            "Name": "name",
+            "Type": "type",
+            "Size X [cm]": "size_x",
+            "Size Y [cm]": "size_y",
+            "Size Z [cm]": "size_z",
+            "Remarks": "remarks",
+        }
+    )
+    data["id_by_user"] = data["id_by_user"].astype(str).replace("nan", "")
+    data["reference"] = data["reference"].astype(str).replace("nan", "")
     data_new["uuid"] = str(uuid4())
-    data_new["first_upload_date"] = now
-    data_new["update_date"] = now
+    data_new["first_upload"] = now
+    data_new["update"] = now
     data_new["reference"] = ""
     data_new["rate"] = -1
     data_new["status"] = "just_uploaded"
@@ -111,35 +125,35 @@ def add_new_data2(data, csv_):
 def calc(data: pd.DataFrame):
     # statusがjust_uploadedの行をフィルタリング
     mask = data["status"] == "just_uploaded"
-    print(mask)
+    # print(mask)
 
     # 乱数を生成してrateカラムに入れる
     data.loc[mask, "rate"] = np.random.random(size=mask.sum())
 
     # update_dateカラムに現在の日時を入れる
     now = pd.to_datetime(datetime.now())
-    data.loc[mask, "update_date"] = now
+    data.loc[mask, "update"] = now
     # statusを更新する
-    data.loc[mask, "status"] = "under_review"
+    data.loc[mask, "status"] = "calculated"
 
     # CSVに書き出す
     write_data(data)
 
 
 def update_data(
-    df_filtered_edited: pd.DataFrame, df_filtered: pd.DataFrame, df_total: pd.DataFrame
+    df_filtered_edited: pd.DataFrame, df_filtered: pd.DataFrame, data: pd.DataFrame
 ):
     now = pd.to_datetime(datetime.now())
 
     # 値が異なる行を取得
     diff = df_filtered_edited[df_filtered_edited.ne(df_filtered)].dropna(how="all")
 
-    # df_totalを更新
+    # dataを更新
     for index, row in diff.iterrows():
-        # df_totalの該当行を更新
-        df_total.loc[df_total["uuid"] == row["uuid"], df_total.columns] = row
-        # update_dateカラムに現在の日時を入れる
-        df_total.loc[df_total["uuid"] == row["uuid"], "update_date"] = now
+        # dataの該当行を更新
+        data.loc[data["uuid"] == row["uuid"], data.columns] = row
+        # updateカラムに現在の日時を入れる
+        data.loc[data["uuid"] == row["uuid"], "update"] = now
 
     # CSVに書き出す
-    write_data(df_total)
+    write_data(data)

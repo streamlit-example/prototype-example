@@ -1,6 +1,6 @@
 import streamlit as st
 
-from modules.df_config import DF_CONFIG
+from modules.df_config import DF_CONFIG  # type: ignore
 
 
 def disp_data(area=st, data=None, height="small", editable=False):

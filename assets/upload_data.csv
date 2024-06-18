@@ -1,4 +1,4 @@
-id,name,type,size_x,size_y,size_z,remarks
-1,ItemA,Type1,10.5,1,2,k
-2,ItemB,Type2,20,2,3,k
-3,ItemC,Type1,15.3,3,4,k
+ID,Name,Type,Size X [cm],Size Y [cm],Size Z [cm],Remarks
+4,ItemA1,Type1,18,32,10,sample 1
+5,ItemB1,Type2,15,40,10,sample 2
+6,ItemC1,Type3,12,35,5,sample 3
