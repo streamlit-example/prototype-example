@@ -113,7 +113,7 @@ def add_new_data2(data, csv_):
     )
     data["id_by_user"] = data["id_by_user"].astype(str).replace("nan", "")
     data["reference"] = data["reference"].astype(str).replace("nan", "")
-    data_new["uuid"] = str(uuid4())
+    data_new["uuid"] = [str(uuid4()) for _ in range(len(data_new))]
     data_new["first_upload"] = now
     data_new["update"] = now
     data_new["reference"] = ""

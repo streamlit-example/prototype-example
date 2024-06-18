@@ -22,7 +22,7 @@ __DISP_COLUMNS = [
 
 DF_CONFIG = {
     "width": 2500,
-    "height": {"small": 210, "tall": 550},
+    "height": {"small": 230, "tall": 570},
     "disabled columns": [
         "id_by_user",
         "first_upload",

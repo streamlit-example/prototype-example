@@ -11,7 +11,7 @@ from views.disp_data import disp_data  # type: ignore
 
 
 def add_data(area, data, filtered_data):
-    disp_data(area=st, data=filtered_data)
+    disp_data(area=st, data=filtered_data, key="add_data")
     columns_ = area.columns([2, 3])
     columns_[0].subheader("Upload")
     add_files(area=columns_[0], data=data)

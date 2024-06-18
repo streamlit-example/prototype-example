@@ -15,8 +15,6 @@ if "id_add_csv" not in stss:
     stss.id_add_csv = 0
 if "id_add_files" not in stss:
     stss.id_add_files = 0
-if "need_edit" not in stss:
-    stss.need_edit = False
 
 
 # ページ全般の設定
@@ -37,6 +35,4 @@ with tabs[1]:
     edit_and_calc(area=st, data=data, filtered_data=filtered_data)
 
 with tabs[2]:
-    check_metrics(
-        area=st, data=data, filtered_data=filtered_data
-    )  # 全データ(df)に対する指標を表示
+    check_metrics(area=st, data=data, filtered_data=filtered_data)
