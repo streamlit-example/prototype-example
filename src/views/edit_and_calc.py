@@ -58,7 +58,7 @@ def edit_and_calc(area, data, filtered_data):
         # 削除ボタンを押した場合
         uuids_to_delete = list(filtered_data.iloc[df_edited.selection.rows]["uuid"])
         # print(uuids_to_delete)
-        print(data[~data["uuid"].isin(uuids_to_delete)])
+        # print(data[~data["uuid"].isin(uuids_to_delete)])
         write_data(data[~data["uuid"].isin(uuids_to_delete)])
         inform_deleted()
     else:

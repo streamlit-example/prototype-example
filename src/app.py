@@ -19,9 +19,8 @@ if "id_add_files" not in stss:
 
 # ページ全般の設定
 st.set_page_config(layout="wide")
-
 # ヘッダー
-st.header("Wireframe Sample", divider="gray")
+st.header("Prototype Sample", divider="gray")
 
 # サイドバー: 検索条件入力欄
 filtered_data = search(area=st.sidebar, data=data)
