@@ -70,19 +70,19 @@ def edit_and_calc(area, data, filtered_data):
         calc_request(data)
 
 
-@st.experimental_dialog("Saved")
+@st.dialog("Saved")
 def inform_modified():
     time.sleep(0.5)
     st.rerun()
 
 
-@st.experimental_dialog("Deleted")
+@st.dialog("Deleted")
 def inform_deleted():
     time.sleep(0.5)
     st.rerun()
 
 
-@st.experimental_dialog("Calculate")
+@st.dialog("Calculate")
 def calc_request(data):
     st.write("Are you sure you want to request calculation?")
     st.text_input("Any Comments:")
